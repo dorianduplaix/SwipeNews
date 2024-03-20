@@ -10,5 +10,4 @@ import Foundation
 protocol Service {
     associatedtype Fetcher: DataFetcher
     init(network: Fetcher)
-    func loadData() async
 }

@@ -13,7 +13,7 @@ enum NewsAPIPath: String {
     case topHeadlinesSource = "/top-headlines/sources"
 }
 
-struct NewsAPI {
+struct NewsAPIEndpoint {
     static func allArticles(for path: NewsAPIPath) -> Endpoint {
         return Endpoint(api: .newsAPI(path), queryItems: [])
     }

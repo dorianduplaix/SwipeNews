@@ -7,7 +7,11 @@
 
 import Foundation
 
-class NewsAPIService: Service, ObservableObject {
+protocol NewsAPI {
+    func loadAllData() async
+}
+
+class NewsAPIService: Service, NewsAPI, ObservableObject {
     typealias Fetcher = NewtorkDataFetcher<ArticleResults>
     @Published private (set) var articlesResults: Loadable<ArticleResults> = .notRequested
     private let network: Fetcher
@@ -15,12 +19,29 @@ class NewsAPIService: Service, ObservableObject {
     required init(network: Fetcher) {
         self.network = network
     }
-
-    func loadData(path: NewsAPIPath, queryItems: [URLQueryItem]) async {
+    
+    func loadAllData() async {
         return await withCheckedContinuation { continuation in
             DispatchQueue.main.async {
-                let endpoint = Endpoint(api: .newsAPI(path), queryItems: queryItems)
-                self.articlesResults.setIsLoading(self.network.fetchData(endpoint))
+                let endpoint = Endpoint(api: .newsAPI(.everything), queryItems: [])
+                self.articlesResults.setIsLoading(self.network.fetchData(endpoint)
+                    .sink(receiveCompletion: { completion in
+                        switch completion {
+                            case .finished:
+                                break
+                            case let .failure(error):
+                                DispatchQueue.main.async {
+                                    self.articlesResults.setError(error)
+                                    continuation.resume()
+                                }
+                        }
+                    }, receiveValue: { value in
+                        DispatchQueue.main.async {
+                            self.articlesResults.setValue(value)
+                            continuation.resume()
+                        }
+                    }))
+                
             }
         }
     }
