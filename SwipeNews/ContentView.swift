@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    let endpoint = Endpoint(route: .everything, queryItems: [])
     var body: some View {
         VStack {
             Image(systemName: "globe")

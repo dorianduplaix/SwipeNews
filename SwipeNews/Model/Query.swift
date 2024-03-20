@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum Query {
+    case title
+    case description
+    case content
+}

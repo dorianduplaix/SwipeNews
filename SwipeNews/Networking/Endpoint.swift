@@ -7,47 +7,41 @@
 
 import Foundation
 
-enum Routes {
-    case everything
-    case topHeadlines
-    case topHeadlinesSource
-    
-    var url: URL {
-        var endpoint = ""
-        switch self {
-            case .everything:
-                endpoint = "everything"
-            case .topHeadlines:
-                endpoint = "top-headlines"
-            case .topHeadlinesSource:
-                endpoint = "top-headlines/sources"
-        }
-        return URL(string: "https://newsapi.org/v2/\(endpoint)?apiKey=\(API_KEY)")!
-    }
-}
-
 struct Endpoint {
-    let path: String
+    let api: API
     let queryItems: [URLQueryItem]
-    
-    private let baseURL = "https://newsapi.org/v2/"
-    private let apiKey = "c101329edd4f441a888c97f8d1e836e5"
-    
-    static func search(matching query: String,
-                       sortedBy sorting: Sorting = .recency) -> Endpoint {
-        return Endpoint(path: "/search/repositories", queryItems: [
-            URLQueryItem(name: "q", value: query),
-            URLQueryItem(name: "sort", value: sorting.rawValue)
-        ])
-    }
+    private let queryLanguage = URLQueryItem(name: "language", value: "en")
     
     var url: URL? {
         var components = URLComponents()
-        components.scheme = "https"
-        components.host = "newsapi.org"
-        components.path = "v2"
-        components.queryItems = queryItems
-        
+        components.scheme = api.components.scheme
+        components.host = api.components.host
+        components.path = api.components.path
+        var completeQueryItems = queryItems
+        completeQueryItems.append(queryLanguage)
+        completeQueryItems.append(URLQueryItem(name: api.components.apiName, value: API_KEY))
+        components.queryItems = completeQueryItems
         return components.url
     }
+}
+
+enum API {
+    case newsAPI(NewsAPIPath)
+    
+    var components: APIComponents {
+        switch self {
+            case let .newsAPI(path):
+                return APIComponents(apiName: "apiKey",
+                                     scheme: "https",
+                                     host: "newsapi.org", 
+                                     path: "/v2\(path.rawValue)")
+        }
+    }
+}
+
+struct APIComponents {
+    var apiName: String
+    var scheme: String
+    var host: String
+    var path: String
 }

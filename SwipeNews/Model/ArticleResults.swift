@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct ArticleResults: Decodable {
+    var status: String
+    var totalResults: Int
+    var articles: [Article]
+}
