@@ -9,6 +9,7 @@ import Foundation
 
 protocol NewsAPI {
     func loadAllData() async
+    var articlesResults: Loadable<ArticleResults> { get }
 }
 
 class NewsAPIService: Service, NewsAPI, ObservableObject {

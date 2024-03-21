@@ -11,6 +11,7 @@ struct Endpoint {
     let api: API
     let queryItems: [URLQueryItem]
     private let queryLanguage = URLQueryItem(name: "language", value: "en")
+    private let queryExemple = URLQueryItem(name: "q", value: "apple")
     
     var url: URL? {
         var components = URLComponents()
@@ -18,7 +19,7 @@ struct Endpoint {
         components.host = api.components.host
         components.path = api.components.path
         var completeQueryItems = queryItems
-        completeQueryItems.append(queryLanguage)
+        completeQueryItems.append(queryExemple)
         completeQueryItems.append(URLQueryItem(name: api.components.apiName, value: API_KEY))
         components.queryItems = completeQueryItems
         return components.url
