@@ -28,6 +28,7 @@
 		E3A60A4F2BAB212000BAA90A /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60A4E2BAB212000BAA90A /* Loadable.swift */; };
 		E3A60A532BAB60DA00BAA90A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60A522BAB60DA00BAA90A /* Service.swift */; };
 		E3A60A5C2BB0684F00BAA90A /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60A5B2BB0684F00BAA90A /* ErrorView.swift */; };
+		E3D24EAA2BB319D500758C81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EA92BB319D500758C81 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		E3A60A4E2BAB212000BAA90A /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		E3A60A522BAB60DA00BAA90A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		E3A60A5B2BB0684F00BAA90A /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		E3D24EA92BB319D500758C81 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				E3A60A5B2BB0684F00BAA90A /* ErrorView.swift */,
+				E3D24EA92BB319D500758C81 /* Colors.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				E3A60A332BA9CDF700BAA90A /* DataFetcher.swift in Sources */,
 				E3A60A532BAB60DA00BAA90A /* Service.swift in Sources */,
 				E3A60A392BA9D3ED00BAA90A /* Endpoint.swift in Sources */,
+				E3D24EAA2BB319D500758C81 /* Colors.swift in Sources */,
 				E3A60A3E2BAB156E00BAA90A /* NewsAPI.swift in Sources */,
 				E3A60A412BAB19AA00BAA90A /* NewsAPIService.swift in Sources */,
 				E3A60A032BA9955600BAA90A /* ContentView.swift in Sources */,
