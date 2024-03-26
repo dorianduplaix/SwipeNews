@@ -27,6 +27,7 @@
 		E3A60A4A2BAB1BE200BAA90A /* NewsAPIFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60A492BAB1BE200BAA90A /* NewsAPIFakes.swift */; };
 		E3A60A4F2BAB212000BAA90A /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60A4E2BAB212000BAA90A /* Loadable.swift */; };
 		E3A60A532BAB60DA00BAA90A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60A522BAB60DA00BAA90A /* Service.swift */; };
+		E3A60A5C2BB0684F00BAA90A /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60A5B2BB0684F00BAA90A /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		E3A60A492BAB1BE200BAA90A /* NewsAPIFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPIFakes.swift; sourceTree = "<group>"; };
 		E3A60A4E2BAB212000BAA90A /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		E3A60A522BAB60DA00BAA90A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		E3A60A5B2BB0684F00BAA90A /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		E3A609FF2BA9955600BAA90A /* SwipeNews */ = {
 			isa = PBXGroup;
 			children = (
+				E3A60A5A2BB0684200BAA90A /* UI */,
 				E3A60A542BAB64B100BAA90A /* View */,
 				E3A60A3C2BAB150600BAA90A /* Service */,
 				E3A60A2F2BA9CDDD00BAA90A /* Networking */,
@@ -228,6 +231,14 @@
 				E3A60A022BA9955600BAA90A /* ContentView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E3A60A5A2BB0684200BAA90A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E3A60A5B2BB0684F00BAA90A /* ErrorView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +379,7 @@
 				E3A60A032BA9955600BAA90A /* ContentView.swift in Sources */,
 				E3A60A4F2BAB212000BAA90A /* Loadable.swift in Sources */,
 				E3A60A2E2BA9CD9D00BAA90A /* ArticleResults.swift in Sources */,
+				E3A60A5C2BB0684F00BAA90A /* ErrorView.swift in Sources */,
 				E3A60A3B2BA9FD9700BAA90A /* Query.swift in Sources */,
 				E3A60A012BA9955600BAA90A /* SwipeNewsApp.swift in Sources */,
 				E3A60A2C2BA9CAF200BAA90A /* Article.swift in Sources */,

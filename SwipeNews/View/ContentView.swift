@@ -33,17 +33,13 @@ struct ContentView: View {
                     Text(lastValue.articles.first!.title)
                 } else {
                     Text("Loading ...")
-//                    LoadingView()
                 }
             case .loaded(let value):
                 Text(value.articles.first!.title)
-//                makeContent(rates)
             case .error(let error):
-                Text("Error")
-//                errorView(error)
-            default:
-                Text("Loading ...")
-//                LoadingView()
+                ErrorView()
+            case .notRequested:
+                EmptyView()
         }
     }
     
