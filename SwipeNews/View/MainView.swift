@@ -20,7 +20,7 @@ struct MainView: View {
                 .tabItem {
                     TabBarAsset.myNews.tabItem
                 }
-            Color(.green)
+            Color(.yellow)
                 .tabItem {
                     TabBarAsset.profile.tabItem
                 }
