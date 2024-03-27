@@ -1,10 +1,11 @@
-# Ticket 
+# Ticket
 
+<!--- Provide a general summary of your changes in the Title above -->
 
-# Content
+## Description
 
+<!--- Describe your changes in detail -->
 
-# How to test it (optional)
+## Motivation and Context
 
-
-# Screenshots (optional)
+<!--- Why is this change required? What problem does it solve? -->
