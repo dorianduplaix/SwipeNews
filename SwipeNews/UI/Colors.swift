@@ -36,7 +36,8 @@ extension Color {
 
 extension Color {
     static let customYellow = Color(hex: "FFF2C5")
-    static let customBlue = Color(hex: "EOF1FF")
+    static let customBlueLight = Color(hex: "D0F1FF")
+    static let customBluePrimary = Color(hex: "209fd5")
     static let customPink = Color(hex: "FFE8E5")
     static let customWhite = Color(hex: "FFFFFF")
     static let customDark = Color(hex: "111111")
