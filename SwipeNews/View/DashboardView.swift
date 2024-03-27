@@ -14,23 +14,6 @@ struct DashboardView: View {
         NavigationView {
             List {
                 VStack {
-                    Image(systemName: "globe")
-                        .imageScale(.large)
-                        .foregroundStyle(.tint)
-                    Text("Hey")
-                    content
-                    content
-                    content
-                    content
-                    content
-                    content
-                    content
-                    content
-                    content
-                    content
-                    content
-                    content
-                    content
                     content
                 }
                 .onAppear {
