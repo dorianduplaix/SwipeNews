@@ -13,7 +13,7 @@ protocol NewsAPI {
 }
 
 class NewsAPIService: Service, NewsAPI, ObservableObject {
-    typealias Fetcher = NewtorkDataFetcher<ArticleResults>
+    typealias Fetcher = MockDataFetcher<ArticleResults>
     @Published private (set) var articlesResults: Loadable<ArticleResults> = .notRequested
     private let network: Fetcher
     

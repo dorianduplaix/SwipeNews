@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  DashboardView.swift
 //  SwipeNews
 //
 //  Created by Dorian Duplaix on 19/03/2024.
@@ -7,21 +7,22 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @StateObject var service = NewsAPIService(network: NewtorkDataFetcher())
+struct DashboardView: View {
+    @StateObject var service = NewsAPIService(network: MockDataFetcher())
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hey")
-            content
+        NavigationView {
+            List {
+                VStack {
+                    content
+                }
+                .onAppear {
+                    loadData()
+                }
+                .padding()
+            }
+            .navigationTitle("À la une")
         }
-        .onAppear {
-            loadData()
-        }
-        .padding()
     }
     
     @ViewBuilder private var content: some View {
@@ -51,9 +52,9 @@ struct ContentView: View {
 }
 
 class ContentViewModel: ObservableObject {
-    @Published private(set) var articles = NewsAPIService(network: NewtorkDataFetcher())
+    
 }
 
 #Preview {
-    ContentView()
+    DashboardView()
 }

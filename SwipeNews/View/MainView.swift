@@ -11,22 +11,24 @@ struct MainView: View {
     @State private var tabSelected = 0
     
     var body: some View {
-        TabView {
-            ContentView()
+        TabView(selection: $tabSelected) {
+            DashboardView()
                 .tabItem {
-                    TabBarAsset.dashboard.tabItem
+                    TabBarAsset.dashboard(isSelected: tabSelected == 0).tabItem
                 }
+                .tag(0)
             Color(.red)
                 .tabItem {
-                    TabBarAsset.myNews.tabItem
+                    TabBarAsset.myNews(isSelected: tabSelected == 1).tabItem
                 }
+                .tag(1)
             Color(.yellow)
                 .tabItem {
-                    TabBarAsset.profile.tabItem
+                    TabBarAsset.profile(isSelected: tabSelected == 2).tabItem
                 }
+                .tag(2)
         }
         .tint(.customBluePrimary)
-        .toolbarColorScheme(.dark, for: .tabBar)
     }
 }
 

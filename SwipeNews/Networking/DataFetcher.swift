@@ -13,7 +13,7 @@ protocol DataFetcher {
     func fetchData(_ endpoint: Endpoint?) -> AnyPublisher<DataType, Error>
 }
 
-struct NewtorkDataFetcher<T: Decodable>: DataFetcher {
+struct NetworkDataFetcher<T: Decodable>: DataFetcher {
     typealias DataType = T
     
     func fetchData(_ endpoint: Endpoint?) -> AnyPublisher<DataType, Error> {
@@ -37,5 +37,20 @@ struct LocalDataFetcher<T: Decodable>: DataFetcher {
         // let data = fetchDataFromDatabase()
         // return Just(data)
         return Fail(error: NSError(domain: "Not implemented", code: 501, userInfo: nil)).eraseToAnyPublisher()
+    }
+}
+
+struct MockDataFetcher<T: Decodable>: DataFetcher {
+    typealias DataType = T
+    var error = false
+    var valueToReturn: Data = NewsAPIFakes.queryBitcoin!
+    private let decoder = JSONDecoder()
+    
+    func fetchData(_ endpoint: Endpoint?) -> AnyPublisher<DataType, Error> {
+        guard !error else {
+            return Result.failure(URLError(.timedOut)).publisher.eraseToAnyPublisher()
+        }
+        let toReturn: DataType = try! decoder.decode(DataType.self, from: valueToReturn)
+        return Result<T, Error>.success(toReturn).publisher.eraseToAnyPublisher()
     }
 }
