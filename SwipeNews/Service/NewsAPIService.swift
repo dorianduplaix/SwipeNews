@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol NewsAPI {
+protocol NewsAPI: ObservableObject {
     func loadAllData() async
     var articlesResults: Loadable<ArticleResults> { get }
 }
 
-class NewsAPIService: Service, NewsAPI, ObservableObject {
+class NewsAPIService: Service, NewsAPI {
     typealias Fetcher = MockDataFetcher<ArticleResults>
     @Published private (set) var articlesResults: Loadable<ArticleResults> = .notRequested
     private let network: Fetcher
