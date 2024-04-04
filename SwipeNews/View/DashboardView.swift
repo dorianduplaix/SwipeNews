@@ -35,7 +35,6 @@ struct DashboardView: View {
             ErrorView()
         } else if let articleResults = viewModel.articleResults {
             VStack {
-                CardView(height: 200)
                 Text(articleResults.articles.first!.title)
             }
         } else {
@@ -59,24 +58,27 @@ class ContentViewModel<Service>: ObservableObject where Service: NewsAPI {
     func loadAllData() {
         Task {
             await service.loadAllData()
-            service.articlesResults.value.publisher
-                .sink(receiveCompletion: { completion in
-                    self.isLoading = true
-                    switch completion {
-                        case .finished:
-                            self.isLoading = false
-                            break
-                        case let .failure(error):
-                            self.isLoading = false
-                            self.error = error
-                    }
-                }, receiveValue: { value in
-                    print("Value received")
-                    self.isLoading = false
-                    self.articleResults = value
-                })
-                .store(in: &cancellables)
+            handleState()
         }
+    }
+    
+    private func handleState() {
+        service.articlesResults.value.publisher
+            .sink(receiveCompletion: { completion in
+                self.isLoading = true
+                switch completion {
+                    case .finished:
+                        self.isLoading = false
+                        break
+                    case let .failure(error):
+                        self.isLoading = false
+                        self.error = error
+                }
+            }, receiveValue: { value in
+                self.isLoading = false
+                self.articleResults = value
+            })
+            .store(in: &cancellables)
     }
 }
 
