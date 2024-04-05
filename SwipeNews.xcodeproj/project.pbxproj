@@ -40,7 +40,6 @@
 		E3D24EBF2BB321F800758C81 /* TabBarAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EBE2BB321F800758C81 /* TabBarAsset.swift */; };
 		E3D24EC12BB3225B00758C81 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EC02BB3225B00758C81 /* MainView.swift */; };
 		E3D24EC42BB4785700758C81 /* NewsFakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EC32BB4785700758C81 /* NewsFakeData.swift */; };
-		E3E0E3E02BBEE17E00104D44 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E0E3DF2BBEE17E00104D44 /* ActivityIndicator.swift */; };
 		E3E0E3E32BC072A000104D44 /* DateFormatter+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E0E3E22BC072A000104D44 /* DateFormatter+extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,7 +97,6 @@
 		E3D24EBE2BB321F800758C81 /* TabBarAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarAsset.swift; sourceTree = "<group>"; };
 		E3D24EC02BB3225B00758C81 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E3D24EC32BB4785700758C81 /* NewsFakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFakeData.swift; sourceTree = "<group>"; };
-		E3E0E3DF2BBEE17E00104D44 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		E3E0E3E22BC072A000104D44 /* DateFormatter+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -276,7 +274,6 @@
 		E3A60A5A2BB0684200BAA90A /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				E3E0E3DE2BBEE16600104D44 /* ActivityIndicator */,
 				E314320B2BB4DE3800BA7282 /* Card */,
 				E3D24EBA2BB3214C00758C81 /* Loader */,
 				E3D24EB52BB3206200758C81 /* Shimmer */,
@@ -338,14 +335,6 @@
 				E3D24EC32BB4785700758C81 /* NewsFakeData.swift */,
 			);
 			path = Mock;
-			sourceTree = "<group>";
-		};
-		E3E0E3DE2BBEE16600104D44 /* ActivityIndicator */ = {
-			isa = PBXGroup;
-			children = (
-				E3E0E3DF2BBEE17E00104D44 /* ActivityIndicator.swift */,
-			);
-			path = ActivityIndicator;
 			sourceTree = "<group>";
 		};
 		E3E0E3E12BC0728300104D44 /* Extensions */ = {
@@ -492,7 +481,6 @@
 				E3D24EB92BB320C100758C81 /* ShimmerEffectHelper.swift in Sources */,
 				E3D24EB22BB31FDB00758C81 /* Fonts.swift in Sources */,
 				E3A60A332BA9CDF700BAA90A /* DataFetcher.swift in Sources */,
-				E3E0E3E02BBEE17E00104D44 /* ActivityIndicator.swift in Sources */,
 				E3A60A532BAB60DA00BAA90A /* Service.swift in Sources */,
 				E3D24EC42BB4785700758C81 /* NewsFakeData.swift in Sources */,
 				E3E0E3E32BC072A000104D44 /* DateFormatter+extension.swift in Sources */,
