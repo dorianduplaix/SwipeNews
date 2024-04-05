@@ -28,7 +28,7 @@ struct MainView: View {
                 }
                 .tag(2)
         }
-        .tint(.customBluePrimary)
+        .tint(Color.customBluePrimary)
     }
 }
 

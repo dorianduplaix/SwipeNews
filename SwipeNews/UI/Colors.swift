@@ -41,4 +41,6 @@ extension Color {
     static let customPink = Color(hex: "FFE8E5")
     static let customWhite = Color(hex: "FFFFFF")
     static let customDark = Color(hex: "111111")
+    static let shimmerGrey = Color(hex: "CACACA")
+    static let customGrey = Color(hex: "555555")
 }
