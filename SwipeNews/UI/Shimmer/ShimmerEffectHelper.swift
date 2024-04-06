@@ -64,7 +64,7 @@ struct ShimmerEffectHelper: ViewModifier {
     private var container: some View {
         GeometryReader {
             let size = $0.size
-            let extraOffset = size.height / 2.5
+            let extraOffset = size.height * 2
             
             rectangleHighlight
                 .offset(x: moveTo > 0 ? extraOffset : -extraOffset)

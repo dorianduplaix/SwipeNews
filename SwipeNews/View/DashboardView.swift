@@ -10,36 +10,50 @@ import Combine
 
 struct DashboardView: View {
     @ObservedObject var viewModel = ContentViewModel<NewsAPIService>()
+    @State private var isActive = false
     
     var body: some View {
-        NavigationView {
-            List {
-                VStack {
-                    NavigationLink {
-                        Color.blue
-                    } label : {
-                        content
-                    }
-                }
-                .padding()
-            }
-            .navigationTitle("À la une")
+        NavigationStack {
+            content
+                .padding(.horizontal, -.space5)
+                .navigationTitle("À la une")
         }
     }
     
     @ViewBuilder
     private var content: some View {
         if viewModel.isLoading {
-            Text("Loading ...")
+            ProgressView()
         } else if let error = viewModel.error {
             ErrorView()
         } else if let articleResults = viewModel.articleResults {
-            VStack {
-                Text(articleResults.articles.first!.title)
-            }
+            cardsList(articles: articleResults.articles)
         } else {
-            Text("Empty")
+            HStack {
+                Spacer()
+                ProgressView()
+                    .tint(Color.gray)
+                Spacer()
+            }
         }
+    }
+    
+    @ViewBuilder
+    private func cardsList(articles: [Article]) -> some View {
+        List {
+            ForEach(articles, id: \.self) { article in
+                CardView(article: article)
+                    .frame(height: 600)
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.clear)
+                    .background(
+                        //TODO: create details view
+                        NavigationLink("", destination: Text(article.title))
+                            .opacity(0)
+                    )
+            }
+        }
+        .listStyle(.plain)
     }
 }
 
@@ -52,7 +66,10 @@ class ContentViewModel<Service>: ObservableObject where Service: NewsAPI {
     
     init(service: Service = NewsAPIService(network: MockDataFetcher())) {
         self.service = service
-        self.loadAllData()
+        //TODO: remove timer after removing the mock
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.loadAllData()
+        }
     }
     
     func loadAllData() {
@@ -60,6 +77,10 @@ class ContentViewModel<Service>: ObservableObject where Service: NewsAPI {
             await service.loadAllData()
             handleState()
         }
+    }
+    
+    func openArticleDetails() {
+        
     }
     
     private func handleState() {
