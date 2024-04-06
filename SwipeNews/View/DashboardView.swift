@@ -42,20 +42,15 @@ struct DashboardView: View {
     private func cardsList(articles: [Article]) -> some View {
         List {
             ForEach(articles, id: \.self) { article in
-                let cardTap = {
-                    print("onCardTap")
-                }
-                CardView(article: article, onCardTap: cardTap)
+                CardView(article: article)
                     .frame(height: 600)
                     .listRowSeparator(.hidden)
-                    .background(NavigationLink(
-                        destination: Color.customBluePrimary,
-                        isActive: $isActive) {
-                            EmptyView()
-                        })
-                    .onTapGesture {
-                        isActive.toggle()    // << activate link !!
-                    }
+                    .listRowBackground(Color.clear)
+                    .background(
+                        //TODO: create details view
+                        NavigationLink("", destination: Text(article.title))
+                            .opacity(0)
+                    )
             }
         }
         .listStyle(.plain)

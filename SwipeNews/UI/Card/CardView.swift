@@ -9,13 +9,9 @@ import SwiftUI
 
 struct CardView: View {
     @Environment(\.colorScheme) var colorScheme
-    
     @State var bookmarked = false
     @State private var isBlured = false
-    @State private var isAuthorHidden = true
-    
     var article: Article
-    var onCardTap: () -> ()
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -53,16 +49,12 @@ struct CardView: View {
             }
             
             informationContent
-                .foregroundColor(Color.customWhite)
                 .padding(.bottom, .space4)
             
             authorInformationContent
                 .padding(EdgeInsets(top: .space2, leading: .space2, bottom: 0, trailing: 0))
         }
         .padding(.horizontal, .space4)
-        .onTapGesture {
-            onCardTap()
-        }
     }
     
     @ViewBuilder
@@ -76,6 +68,7 @@ struct CardView: View {
             },
             placeholder: {
                 ProgressView()
+                    .tint(Color.gray)
             }
         )
     }
@@ -99,15 +92,42 @@ struct CardView: View {
     private var descriptionContent: some View {
         VStack(alignment: .leading) {
             Text(article.title)
+                .foregroundColor(Color.customWhite)
                 .font(.title)
                 .bold()
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.bottom, .space1)
             
-            Text(article.description ?? "")
-                .font(.subheadline)
-                .lineLimit(3)
-                .foregroundStyle(Color.shimmerGrey)
+            ZStack(alignment: .bottomTrailing) {
+                Text(article.description ?? "")
+                    .font(.subheadline)
+                    .lineLimit(3)
+                    .foregroundStyle(Color.shimmerGrey)
+                
+                HStack(spacing: 0) {
+                    Rectangle()
+                        .fill(backgroundColor)
+                        .frame(width: 100, height: 20)
+                        .mask(
+                            HStack(spacing: 0) {
+                                // Gradient from custom dark color to transparent
+                                LinearGradient(gradient: Gradient(colors: [.clear, backgroundColor]), startPoint: .leading, endPoint: .trailing)
+                                Spacer() // Pushes the gradient to the leading edge
+                            }
+                        )
+                    
+                    Button("Voir plus", action: {
+                        isBlured.toggle()
+                    })
+                    .foregroundStyle(Color.customBluePrimary)
+                    .bold()
+                    .background(
+                        Rectangle()
+                            .fill(backgroundColor)
+                            .padding(.leading, -.space6)
+                    )
+                }
+            }
         }
     }
     
@@ -153,14 +173,13 @@ struct CardView: View {
                 .foregroundStyle(Color.shimmerGrey)
                 .onTapGesture {
                     isBlured.toggle()
-                    isAuthorHidden.toggle()
                 }
             
-            Text("(\(article.author ?? ""))")
+            Text("(\(article.author ?? "Auteur inconnu"))")
                 .foregroundStyle(Color.shimmerGrey)
-                .opacity(isAuthorHidden ? 0 : 1)
+                .opacity(isBlured ? 1 : 0)
                 .font(.caption2)
-                .animation(.default, value: isAuthorHidden)
+                .animation(.default, value: isBlured)
             
         }
     }
@@ -190,6 +209,5 @@ struct CardView: View {
                               url: "https://arstechnica.com/tech-policy/2024/03/bitcoin-price-hits-record-69k-after-sec-approvals-fueled-7b-in-investments/",
                               urlToImage: "https://cdn.arstechnica.net/wp-content/uploads/2024/03/GettyImages-1872368024-760x380.jpg",
                               publishedAt: "2024-03-05T19:07:13Z",
-                              content: "Aujourd'hui il fait vraiment super moche. C'est assez relou, j'ai une flemme assez énorme de me rendre sur mon lieu de travail pour ne rien faire avec un temps pareil."),
-             onCardTap: {print("onTapCard")})
+                              content: "Aujourd'hui il fait vraiment super moche. C'est assez relou, j'ai une flemme assez énorme de me rendre sur mon lieu de travail pour ne rien faire avec un temps pareil."))
 }
