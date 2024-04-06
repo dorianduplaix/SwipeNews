@@ -29,6 +29,7 @@
 		E3A60A4F2BAB212000BAA90A /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60A4E2BAB212000BAA90A /* Loadable.swift */; };
 		E3A60A532BAB60DA00BAA90A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60A522BAB60DA00BAA90A /* Service.swift */; };
 		E3A60A5C2BB0684F00BAA90A /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60A5B2BB0684F00BAA90A /* ErrorView.swift */; };
+		E3CE74942BC1D2BD0054FF45 /* launchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CE74932BC1D2BD0054FF45 /* launchScreen.storyboard */; };
 		E3D24EAA2BB319D500758C81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EA92BB319D500758C81 /* Colors.swift */; };
 		E3D24EAC2BB31F8C00758C81 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EAB2BB31F8C00758C81 /* Spacing.swift */; };
 		E3D24EB22BB31FDB00758C81 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EAE2BB31FDB00758C81 /* Fonts.swift */; };
@@ -86,6 +87,8 @@
 		E3A60A4E2BAB212000BAA90A /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		E3A60A522BAB60DA00BAA90A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		E3A60A5B2BB0684F00BAA90A /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		E3CE74922BC1D2680054FF45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E3CE74932BC1D2BD0054FF45 /* launchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = launchScreen.storyboard; sourceTree = "<group>"; };
 		E3D24EA92BB319D500758C81 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E3D24EAB2BB31F8C00758C81 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		E3D24EAE2BB31FDB00758C81 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fonts.swift; path = "../../../../ekonoo-ios-app-v2/EkoUI/EkoUI/Fonts/Fonts.swift"; sourceTree = "<group>"; };
@@ -136,6 +139,7 @@
 		E3A609F42BA9955600BAA90A = {
 			isa = PBXGroup;
 			children = (
+				E3CE74932BC1D2BD0054FF45 /* launchScreen.storyboard */,
 				E3A609FF2BA9955600BAA90A /* SwipeNews */,
 				E3A60A102BA9955900BAA90A /* SwipeNewsTests */,
 				E3A60A1A2BA9955900BAA90A /* SwipeNewsUITests */,
@@ -157,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				E3E0E3E12BC0728300104D44 /* Extensions */,
+				E3CE74922BC1D2680054FF45 /* Info.plist */,
 				E3D24EBD2BB321E700758C81 /* Utils */,
 				E3A60A5A2BB0684200BAA90A /* UI */,
 				E3A60A542BAB64B100BAA90A /* View */,
@@ -449,6 +454,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3CE74942BC1D2BD0054FF45 /* launchScreen.storyboard in Resources */,
 				E3D24EB42BB31FDB00758C81 /* AlbertSans-Regular.ttf in Resources */,
 				E3D24EB32BB31FDB00758C81 /* AlbertSans-SemiBold.ttf in Resources */,
 				E3A60A082BA9955900BAA90A /* Preview Assets.xcassets in Resources */,
@@ -664,15 +670,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwipeNews/Preview Content\"";
 				DEVELOPMENT_TEAM = XUV3TR3S4M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwipeNews/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = launchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -693,15 +701,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwipeNews/Preview Content\"";
 				DEVELOPMENT_TEAM = XUV3TR3S4M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwipeNews/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = launchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
