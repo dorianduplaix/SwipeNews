@@ -9,13 +9,19 @@ import SwiftUI
 
 struct CardView: View {
     @Environment(\.colorScheme) var colorScheme
+    
     @State var bookmarked = false
+    @State private var isBlured = false
+    @State private var isAuthorHidden = true
+    
     var article: Article
+    var onCardTap: () -> ()
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .topLeading) {
             RoundedRectangle(cornerRadius: 10, style: .continuous)
                 .shadow(color: Color.gray.opacity(0.5), radius: 1)
+            
             GeometryReader { geometry in
                 VStack(spacing: 0) {
                     ZStack {
@@ -25,6 +31,8 @@ struct CardView: View {
                         .ignoresSafeArea()
                         
                         image
+                            .blur(radius: blurRadius)
+                            .animation(.default, value: isBlured)
                             .mask(
                                 LinearGradient(
                                     gradient: Gradient(colors: [
@@ -47,8 +55,14 @@ struct CardView: View {
             informationContent
                 .foregroundColor(Color.customWhite)
                 .padding(.bottom, .space4)
+            
+            authorInformationContent
+                .padding(EdgeInsets(top: .space2, leading: .space2, bottom: 0, trailing: 0))
         }
         .padding(.horizontal, .space4)
+        .onTapGesture {
+            onCardTap()
+        }
     }
     
     @ViewBuilder
@@ -93,7 +107,7 @@ struct CardView: View {
             Text(article.description ?? "")
                 .font(.subheadline)
                 .lineLimit(3)
-                .opacity(0.8)
+                .foregroundStyle(Color.shimmerGrey)
         }
     }
     
@@ -108,7 +122,7 @@ struct CardView: View {
                     Text(article.source.name)
                     Text(date)
                 }
-                .opacity(0.8)
+                .foregroundStyle(Color.shimmerGrey)
                 .font(.caption2)
                 
                 Spacer()
@@ -132,6 +146,25 @@ struct CardView: View {
         .padding(.trailing, .space3)
     }
     
+    @ViewBuilder
+    private var authorInformationContent: some View {
+        HStack {
+            Image(systemName: "info.circle.fill")
+                .foregroundStyle(Color.shimmerGrey)
+                .onTapGesture {
+                    isBlured.toggle()
+                    isAuthorHidden.toggle()
+                }
+            
+            Text("(\(article.author ?? ""))")
+                .foregroundStyle(Color.shimmerGrey)
+                .opacity(isAuthorHidden ? 0 : 1)
+                .font(.caption2)
+                .animation(.default, value: isAuthorHidden)
+            
+        }
+    }
+    
     private var backgroundColor: Color {
         colorScheme == .dark ? Color.customGrey : Color.customDark
     }
@@ -143,14 +176,20 @@ struct CardView: View {
     private var bookmarkIcon: Image {
         bookmarked ? Image(systemName: "bookmark.fill") : Image(systemName: "bookmark")
     }
+    
+    private var blurRadius: CGFloat {
+        isBlured ? 20 : 0
+    }
 }
 
 #Preview {
     CardView(article: Article(source: Source(name: "Tkt frère"),
+                              author: "La chouchoute",
                               title: "Beaucoup de pluie aujourd'hui",
                               description: "Aujourd'hui il fait vraiment super moche. C'est assez relou, j'ai une flemme assez énorme de me rendre sur mon lieu de travail pour ne rien faire avec un temps pareil.",
                               url: "https://arstechnica.com/tech-policy/2024/03/bitcoin-price-hits-record-69k-after-sec-approvals-fueled-7b-in-investments/",
                               urlToImage: "https://cdn.arstechnica.net/wp-content/uploads/2024/03/GettyImages-1872368024-760x380.jpg",
                               publishedAt: "2024-03-05T19:07:13Z",
-                              content: "Aujourd'hui il fait vraiment super moche. C'est assez relou, j'ai une flemme assez énorme de me rendre sur mon lieu de travail pour ne rien faire avec un temps pareil."))
+                              content: "Aujourd'hui il fait vraiment super moche. C'est assez relou, j'ai une flemme assez énorme de me rendre sur mon lieu de travail pour ne rien faire avec un temps pareil."),
+             onCardTap: {print("onTapCard")})
 }

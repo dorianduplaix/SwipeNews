@@ -10,6 +10,7 @@ import Combine
 
 struct DashboardView: View {
     @ObservedObject var viewModel = ContentViewModel<NewsAPIService>()
+    @State private var isActive = false
     
     var body: some View {
         NavigationStack {
@@ -41,9 +42,20 @@ struct DashboardView: View {
     private func cardsList(articles: [Article]) -> some View {
         List {
             ForEach(articles, id: \.self) { article in
-                CardView(article: article)
+                let cardTap = {
+                    print("onCardTap")
+                }
+                CardView(article: article, onCardTap: cardTap)
                     .frame(height: 600)
                     .listRowSeparator(.hidden)
+                    .background(NavigationLink(
+                        destination: Color.customBluePrimary,
+                        isActive: $isActive) {
+                            EmptyView()
+                        })
+                    .onTapGesture {
+                        isActive.toggle()    // << activate link !!
+                    }
             }
         }
         .listStyle(.plain)
@@ -70,6 +82,10 @@ class ContentViewModel<Service>: ObservableObject where Service: NewsAPI {
             await service.loadAllData()
             handleState()
         }
+    }
+    
+    func openArticleDetails() {
+        
     }
     
     private func handleState() {
