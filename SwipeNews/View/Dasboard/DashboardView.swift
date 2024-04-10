@@ -9,7 +9,8 @@ import SwiftUI
 import Combine
 
 struct DashboardView: View {
-    @ObservedObject var viewModel = ContentViewModel<NewsAPIService>()
+    @Environment(\.colorScheme) var colorScheme
+    @ObservedObject private var viewModel = ContentViewModel<NewsAPIService>()
     @State private var isActive = false
     
     var body: some View {
@@ -18,6 +19,7 @@ struct DashboardView: View {
                 .padding(.horizontal, -.space5)
                 .navigationTitle("À la une")
         }
+        .background(colorScheme == .dark ? Color.customDark : Color.shimmerGrey)
     }
     
     @ViewBuilder
@@ -32,7 +34,6 @@ struct DashboardView: View {
             HStack {
                 Spacer()
                 ProgressView()
-                    .tint(Color.gray)
                 Spacer()
             }
         }

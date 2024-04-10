@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E314320D2BB4DE5100BA7282 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E314320C2BB4DE5100BA7282 /* CardView.swift */; };
+		E380B0112BC2D57B00BC4C8D /* ProfileMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E380B0102BC2D57B00BC4C8D /* ProfileMainView.swift */; };
+		E380B0142BC2D5BE00BC4C8D /* ProfileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E380B0132BC2D5BE00BC4C8D /* ProfileItem.swift */; };
+		E380B0162BC2D5FE00BC4C8D /* ProfileAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = E380B0152BC2D5FE00BC4C8D /* ProfileAsset.swift */; };
+		E380B0182BC58FBF00BC4C8D /* Image+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E380B0172BC58FBF00BC4C8D /* Image+extensions.swift */; };
 		E3A60A012BA9955600BAA90A /* SwipeNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60A002BA9955600BAA90A /* SwipeNewsApp.swift */; };
 		E3A60A032BA9955600BAA90A /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60A022BA9955600BAA90A /* DashboardView.swift */; };
 		E3A60A052BA9955900BAA90A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3A60A042BA9955900BAA90A /* Assets.xcassets */; };
@@ -63,6 +67,10 @@
 
 /* Begin PBXFileReference section */
 		E314320C2BB4DE5100BA7282 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		E380B0102BC2D57B00BC4C8D /* ProfileMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainView.swift; sourceTree = "<group>"; };
+		E380B0132BC2D5BE00BC4C8D /* ProfileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItem.swift; sourceTree = "<group>"; };
+		E380B0152BC2D5FE00BC4C8D /* ProfileAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAsset.swift; sourceTree = "<group>"; };
+		E380B0172BC58FBF00BC4C8D /* Image+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extensions.swift"; sourceTree = "<group>"; };
 		E3A609FD2BA9955600BAA90A /* SwipeNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A60A002BA9955600BAA90A /* SwipeNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeNewsApp.swift; sourceTree = "<group>"; };
 		E3A60A022BA9955600BAA90A /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -134,6 +142,30 @@
 				E314320C2BB4DE5100BA7282 /* CardView.swift */,
 			);
 			path = Card;
+			sourceTree = "<group>";
+		};
+		E380B00E2BC2D56400BC4C8D /* Dasboard */ = {
+			isa = PBXGroup;
+			children = (
+				E3A60A022BA9955600BAA90A /* DashboardView.swift */,
+			);
+			path = Dasboard;
+			sourceTree = "<group>";
+		};
+		E380B00F2BC2D56E00BC4C8D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E380B0102BC2D57B00BC4C8D /* ProfileMainView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E380B0122BC2D5AD00BC4C8D /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				E380B0132BC2D5BE00BC4C8D /* ProfileItem.swift */,
+			);
+			path = Item;
 			sourceTree = "<group>";
 		};
 		E3A609F42BA9955600BAA90A = {
@@ -270,7 +302,8 @@
 		E3A60A542BAB64B100BAA90A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E3A60A022BA9955600BAA90A /* DashboardView.swift */,
+				E380B00F2BC2D56E00BC4C8D /* Profile */,
+				E380B00E2BC2D56400BC4C8D /* Dasboard */,
 				E3D24EC02BB3225B00758C81 /* MainView.swift */,
 			);
 			path = View;
@@ -279,6 +312,7 @@
 		E3A60A5A2BB0684200BAA90A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E380B0122BC2D5AD00BC4C8D /* Item */,
 				E314320B2BB4DE3800BA7282 /* Card */,
 				E3D24EBA2BB3214C00758C81 /* Loader */,
 				E3D24EB52BB3206200758C81 /* Shimmer */,
@@ -330,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				E3D24EBE2BB321F800758C81 /* TabBarAsset.swift */,
+				E380B0152BC2D5FE00BC4C8D /* ProfileAsset.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -346,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				E3E0E3E22BC072A000104D44 /* DateFormatter+extension.swift */,
+				E380B0172BC58FBF00BC4C8D /* Image+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -486,7 +522,10 @@
 				E3D24EBF2BB321F800758C81 /* TabBarAsset.swift in Sources */,
 				E3D24EB92BB320C100758C81 /* ShimmerEffectHelper.swift in Sources */,
 				E3D24EB22BB31FDB00758C81 /* Fonts.swift in Sources */,
+				E380B0182BC58FBF00BC4C8D /* Image+extensions.swift in Sources */,
+				E380B0162BC2D5FE00BC4C8D /* ProfileAsset.swift in Sources */,
 				E3A60A332BA9CDF700BAA90A /* DataFetcher.swift in Sources */,
+				E380B0112BC2D57B00BC4C8D /* ProfileMainView.swift in Sources */,
 				E3A60A532BAB60DA00BAA90A /* Service.swift in Sources */,
 				E3D24EC42BB4785700758C81 /* NewsFakeData.swift in Sources */,
 				E3E0E3E32BC072A000104D44 /* DateFormatter+extension.swift in Sources */,
@@ -506,6 +545,7 @@
 				E3A60A012BA9955600BAA90A /* SwipeNewsApp.swift in Sources */,
 				E3A60A2C2BA9CAF200BAA90A /* Article.swift in Sources */,
 				E3D24EBC2BB3215B00758C81 /* LoadingIndicator.swift in Sources */,
+				E380B0142BC2D5BE00BC4C8D /* ProfileItem.swift in Sources */,
 				E3A60A372BA9D3AD00BAA90A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
