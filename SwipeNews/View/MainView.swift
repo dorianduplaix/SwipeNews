@@ -22,7 +22,7 @@ struct MainView: View {
                     TabBarAsset.myNews(isSelected: tabSelected == 1).tabItem
                 }
                 .tag(1)
-            Color(.yellow)
+            ProfileMainView()
                 .tabItem {
                     TabBarAsset.profile(isSelected: tabSelected == 2).tabItem
                 }

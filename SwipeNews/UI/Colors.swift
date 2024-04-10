@@ -43,4 +43,5 @@ extension Color {
     static let customDark = Color(hex: "111111")
     static let shimmerGrey = Color(hex: "FFFFFF").opacity(0.9)
     static let customGrey = Color(hex: "555555")
+    static let customLightGrey = Color(hex: "555555").opacity(0.8)
 }
