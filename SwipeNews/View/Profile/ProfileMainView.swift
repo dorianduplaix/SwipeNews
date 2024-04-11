@@ -34,7 +34,7 @@ struct ProfileMainView: View {
                     NavigationLink(destination: Text("dazdazdazdazd"), label: {
                         ProfileItem(item: .note)
                     })
-                    NavigationLink(destination: Text("dazdazdazdazd"), label: {
+                    NavigationLink(destination: AboutUsView(), label: {
                         ProfileItem(item: .aboutUs)
                     })
                 }
