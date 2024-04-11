@@ -39,7 +39,10 @@ class NewsAPIService: Service, NewsAPI {
                         }
                     }, receiveValue: { value in
                         DispatchQueue.main.async {
-                            self.articlesResults.setValue(value)
+                            var purgedValue = value
+                            purgedValue.purgeBadNews()
+                            self.articlesResults.setValue(purgedValue)
+                            print(purgedValue)
                             continuation.resume()
                         }
                     }))
