@@ -11,4 +11,8 @@ struct ArticleResults: Decodable {
     var status: String
     var totalResults: Int
     var articles: [Article]
+    
+    mutating func purgeBadNews() {
+        articles = articles.filter { $0.title != "[Removed]" && $0.urlToImage != nil}
+    }
 }
