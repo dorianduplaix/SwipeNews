@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject private var storeData = StoreData()
     @State private var tabSelected = 0
     
     var body: some View {
@@ -17,7 +18,7 @@ struct MainView: View {
                     TabBarAsset.dashboard(isSelected: tabSelected == 0).tabItem
                 }
                 .tag(0)
-            Color(.red)
+            Text("Mes actualités")
                 .tabItem {
                     TabBarAsset.myNews(isSelected: tabSelected == 1).tabItem
                 }
@@ -28,10 +29,12 @@ struct MainView: View {
                 }
                 .tag(2)
         }
-        .tint(Color.customBluePrimary)
+        .environmentObject(storeData)
+        .accentColor(Color.customBluePrimary)
     }
 }
 
 #Preview {
     MainView()
+        .environmentObject(StoreData())
 }

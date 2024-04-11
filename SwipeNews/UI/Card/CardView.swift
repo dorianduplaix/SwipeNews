@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct CardView: View {
-    @Environment(\.colorScheme) var colorScheme
-    @State var bookmarked = false
+    @Environment(\.colorScheme) private var colorScheme
+    @EnvironmentObject private var storeData: StoreData
+    
+    @State var bookmarked: Bool
     @State private var isBlured = false
+    
     var article: Article
+    var onBookmarkTap: () -> ()
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -67,8 +71,7 @@ struct CardView: View {
                     .scaledToFill()
             },
             placeholder: {
-                ProgressView()
-                    .tint(Color.gray)
+                EmptyView()
             }
         )
     }
@@ -158,6 +161,7 @@ struct CardView: View {
             bookmarkIcon
                 .onTapGesture {
                     bookmarked.toggle()
+                    onBookmarkTap()
                 }
             
             Image(systemName: "square.and.arrow.up")
@@ -202,12 +206,13 @@ struct CardView: View {
 }
 
 #Preview {
-    CardView(article: Article(source: Source(name: "Tkt frère"),
+    CardView(bookmarked: true, article: Article(source: Source(name: "Tkt frère"),
                               author: "La chouchoute",
                               title: "Beaucoup de pluie aujourd'hui",
                               description: "Aujourd'hui il fait vraiment super moche. C'est assez relou, j'ai une flemme assez énorme de me rendre sur mon lieu de travail pour ne rien faire avec un temps pareil.",
                               url: "https://arstechnica.com/tech-policy/2024/03/bitcoin-price-hits-record-69k-after-sec-approvals-fueled-7b-in-investments/",
                               urlToImage: "https://cdn.arstechnica.net/wp-content/uploads/2024/03/GettyImages-1872368024-760x380.jpg",
                               publishedAt: "2024-03-05T19:07:13Z",
-                              content: "Aujourd'hui il fait vraiment super moche. C'est assez relou, j'ai une flemme assez énorme de me rendre sur mon lieu de travail pour ne rien faire avec un temps pareil."))
+                              content: "Aujourd'hui il fait vraiment super moche. C'est assez relou, j'ai une flemme assez énorme de me rendre sur mon lieu de travail pour ne rien faire avec un temps pareil."), 
+             onBookmarkTap: {})
 }

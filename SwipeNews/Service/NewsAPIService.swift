@@ -22,6 +22,7 @@ class NewsAPIService: Service, NewsAPI {
     }
     
     func loadAllData() async {
+        print("call")
         return await withCheckedContinuation { continuation in
             DispatchQueue.main.async {
                 let endpoint = Endpoint(api: .newsAPI(.everything), queryItems: [])

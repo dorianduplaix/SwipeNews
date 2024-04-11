@@ -9,8 +9,10 @@ import SwiftUI
 import Combine
 
 struct DashboardView: View {
-    @Environment(\.colorScheme) var colorScheme
-    @ObservedObject private var viewModel = ContentViewModel<NewsAPIService>()
+    @Environment(\.colorScheme) private var colorScheme
+    @EnvironmentObject private var storeData: StoreData
+    
+    @StateObject private var viewModel = ContentViewModel<NewsAPIService>()
     @State private var isActive = false
     
     var body: some View {
@@ -43,7 +45,11 @@ struct DashboardView: View {
     private func cardsList(articles: [Article]) -> some View {
         List {
             ForEach(articles, id: \.self) { article in
-                CardView(article: article)
+                CardView(bookmarked: isBookmarked(article: article),
+                         article: article,
+                         onBookmarkTap: {
+                    bookmarkArticle(article: article)
+                })
                     .frame(height: 600)
                     .listRowSeparator(.hidden)
                     .listRowBackground(Color.clear)
@@ -55,6 +61,18 @@ struct DashboardView: View {
             }
         }
         .listStyle(.plain)
+    }
+    
+    private func bookmarkArticle(article: Article) {
+        if let index = storeData.bookmarkedArticles.firstIndex(where: { $0.id == article.id }) {
+            storeData.bookmarkedArticles.remove(at: index)
+        } else {
+            storeData.bookmarkedArticles.append(article)
+        }
+    }
+    
+    private func isBookmarked(article: Article) -> Bool {
+        return storeData.bookmarkedArticles.contains(article)
     }
 }
 
