@@ -32,7 +32,7 @@ struct LocalDataFetcher<T: Decodable>: DataFetcher {
     typealias DataType = T
 
     func fetchData(_ endpoint: Endpoint?) -> AnyPublisher<DataType, Error> {
-        // Implement your logic to fetch data from local database
+        // Implement logic to fetch data from local database
         // For example:
         // let data = fetchDataFromDatabase()
         // return Just(data)
