@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Article: Decodable, Hashable, Identifiable {
+struct Article: Model, Identifiable {
     let id: String = UUID().uuidString
     var source: Source
     var author: String?
@@ -17,9 +17,27 @@ struct Article: Decodable, Hashable, Identifiable {
     var urlToImage: String?
     var publishedAt: String
     var content: String
+    
+    func toDataBaseObject() -> DataBaseObject {
+        return ArticleDB(
+            id: id,
+            source: SourceDB(id: source.id, name: source.name),
+            author: author,
+            title: title,
+            subtitle: description,
+            url: url,
+            urlToImage: urlToImage,
+            publishedAt: publishedAt,
+            content: content
+        )
+    }
 }
 
-struct Source: Decodable, Hashable {
+struct Source: Model {
     var id: String?
     var name: String
+    
+    func toDataBaseObject() -> DataBaseObject {
+        return SourceDB(id: id, name: name)
+    }
 }
