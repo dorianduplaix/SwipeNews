@@ -16,6 +16,12 @@ This project is a work-in-progress iOS app designed to revolutionize the news re
 
 I want for the moment to outrageaously use the LocalDatabase because the API I use ([NewsAPI.org](https://newsapi.org/)) only offers 100 calls/day for one account (and I let you see the price of the pay version on the associated link 👀).
 
+## Architecture
+
+The project follows the MVVM (Model-View-ViewModel) design pattern, coupled with a robust protocol-oriented architecture. 
+
+This architecture not only facilitates clean and maintainable code but also aids in creating comprehensive unit tests for each component of the app.
+
 ## Compatibility
 
 - Minimum iOS Version: iOS 17
