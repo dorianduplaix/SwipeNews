@@ -37,12 +37,16 @@
 		E3A60A5C2BB0684F00BAA90A /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60A5B2BB0684F00BAA90A /* ErrorView.swift */; };
 		E3AAF9532BC7D9F400AFC924 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAF9522BC7D9F400AFC924 /* EmptyListView.swift */; };
 		E3AAF9552BC7F48A00AFC924 /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAF9542BC7F48A00AFC924 /* AboutUsView.swift */; };
+		E3AAF9602BD3E4B800AFC924 /* DefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAF95F2BD3E4B800AFC924 /* DefaultStorage.swift */; };
+		E3AAF9622BD3E4C300AFC924 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAF9612BD3E4C300AFC924 /* Storage.swift */; };
+		E3CD9B992BD3E804004C1D7A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E3CD9B982BD3E804004C1D7A /* Realm */; };
+		E3CD9B9B2BD3E804004C1D7A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E3CD9B9A2BD3E804004C1D7A /* RealmSwift */; };
+		E3CD9B9E2BD3EAC8004C1D7A /* ArticleDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD9B9D2BD3EAC8004C1D7A /* ArticleDB.swift */; };
+		E3CD9BA02BD3EBE3004C1D7A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD9B9F2BD3EBE3004C1D7A /* Model.swift */; };
+		E3CD9BA22BD3EDCA004C1D7A /* ArticleResultsDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD9BA12BD3EDCA004C1D7A /* ArticleResultsDB.swift */; };
 		E3CE74942BC1D2BD0054FF45 /* launchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CE74932BC1D2BD0054FF45 /* launchScreen.storyboard */; };
 		E3D24EAA2BB319D500758C81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EA92BB319D500758C81 /* Colors.swift */; };
 		E3D24EAC2BB31F8C00758C81 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EAB2BB31F8C00758C81 /* Spacing.swift */; };
-		E3D24EB22BB31FDB00758C81 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EAE2BB31FDB00758C81 /* Fonts.swift */; };
-		E3D24EB32BB31FDB00758C81 /* AlbertSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D24EB02BB31FDB00758C81 /* AlbertSans-SemiBold.ttf */; };
-		E3D24EB42BB31FDB00758C81 /* AlbertSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D24EB12BB31FDB00758C81 /* AlbertSans-Regular.ttf */; };
 		E3D24EB72BB3206F00758C81 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EB62BB3206F00758C81 /* ShimmerView.swift */; };
 		E3D24EB92BB320C100758C81 /* ShimmerEffectHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EB82BB320C100758C81 /* ShimmerEffectHelper.swift */; };
 		E3D24EBC2BB3215B00758C81 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EBB2BB3215B00758C81 /* LoadingIndicator.swift */; };
@@ -104,13 +108,15 @@
 		E3A60A5B2BB0684F00BAA90A /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		E3AAF9522BC7D9F400AFC924 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		E3AAF9542BC7F48A00AFC924 /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
+		E3AAF95F2BD3E4B800AFC924 /* DefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStorage.swift; sourceTree = "<group>"; };
+		E3AAF9612BD3E4C300AFC924 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		E3CD9B9D2BD3EAC8004C1D7A /* ArticleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDB.swift; sourceTree = "<group>"; };
+		E3CD9B9F2BD3EBE3004C1D7A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E3CD9BA12BD3EDCA004C1D7A /* ArticleResultsDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleResultsDB.swift; sourceTree = "<group>"; };
 		E3CE74922BC1D2680054FF45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E3CE74932BC1D2BD0054FF45 /* launchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = launchScreen.storyboard; sourceTree = "<group>"; };
 		E3D24EA92BB319D500758C81 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E3D24EAB2BB31F8C00758C81 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
-		E3D24EAE2BB31FDB00758C81 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fonts.swift; path = "../../../../ekonoo-ios-app-v2/EkoUI/EkoUI/Fonts/Fonts.swift"; sourceTree = "<group>"; };
-		E3D24EB02BB31FDB00758C81 /* AlbertSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlbertSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		E3D24EB12BB31FDB00758C81 /* AlbertSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlbertSans-Regular.ttf"; sourceTree = "<group>"; };
 		E3D24EB62BB3206F00758C81 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		E3D24EB82BB320C100758C81 /* ShimmerEffectHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerEffectHelper.swift; sourceTree = "<group>"; };
 		E3D24EBB2BB3215B00758C81 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
@@ -126,6 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3CD9B9B2BD3E804004C1D7A /* RealmSwift in Frameworks */,
+				E3CD9B992BD3E804004C1D7A /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +221,7 @@
 				E3A60A3C2BAB150600BAA90A /* Service */,
 				E3A60A2F2BA9CDDD00BAA90A /* Networking */,
 				E3A60A2A2BA9961F00BAA90A /* Model */,
+				E3AAF95E2BD3E4A600AFC924 /* Storage */,
 				E3A60A002BA9955600BAA90A /* SwipeNewsApp.swift */,
 				E3A60A042BA9955900BAA90A /* Assets.xcassets */,
 				E3A60A062BA9955900BAA90A /* Preview Content */,
@@ -252,11 +261,13 @@
 		E3A60A2A2BA9961F00BAA90A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E3CD9B9C2BD3EABC004C1D7A /* DBModel */,
 				E3A60A2B2BA9CAF200BAA90A /* Article.swift */,
 				E3A60A2D2BA9CD9D00BAA90A /* ArticleResults.swift */,
 				E3A60A3A2BA9FD9700BAA90A /* Query.swift */,
 				E3A60A4E2BAB212000BAA90A /* Loadable.swift */,
 				E380B0192BC68DA500BC4C8D /* StoreData.swift */,
+				E3CD9B9F2BD3EBE3004C1D7A /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -334,7 +345,6 @@
 				E314320B2BB4DE3800BA7282 /* Card */,
 				E3D24EBA2BB3214C00758C81 /* Loader */,
 				E3D24EB52BB3206200758C81 /* Shimmer */,
-				E3D24EAD2BB31FD000758C81 /* Fonts */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -347,23 +357,22 @@
 			path = EmptyView;
 			sourceTree = "<group>";
 		};
-		E3D24EAD2BB31FD000758C81 /* Fonts */ = {
+		E3AAF95E2BD3E4A600AFC924 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				E3D24EAF2BB31FDB00758C81 /* AlbertSans */,
-				E3D24EAE2BB31FDB00758C81 /* Fonts.swift */,
+				E3AAF9612BD3E4C300AFC924 /* Storage.swift */,
+				E3AAF95F2BD3E4B800AFC924 /* DefaultStorage.swift */,
 			);
-			path = Fonts;
+			path = Storage;
 			sourceTree = "<group>";
 		};
-		E3D24EAF2BB31FDB00758C81 /* AlbertSans */ = {
+		E3CD9B9C2BD3EABC004C1D7A /* DBModel */ = {
 			isa = PBXGroup;
 			children = (
-				E3D24EB02BB31FDB00758C81 /* AlbertSans-SemiBold.ttf */,
-				E3D24EB12BB31FDB00758C81 /* AlbertSans-Regular.ttf */,
+				E3CD9B9D2BD3EAC8004C1D7A /* ArticleDB.swift */,
+				E3CD9BA12BD3EDCA004C1D7A /* ArticleResultsDB.swift */,
 			);
-			name = AlbertSans;
-			path = "../../../../ekonoo-ios-app-v2/EkoUI/EkoUI/Fonts/AlbertSans";
+			path = DBModel;
 			sourceTree = "<group>";
 		};
 		E3D24EB52BB3206200758C81 /* Shimmer */ = {
@@ -449,6 +458,10 @@
 			dependencies = (
 			);
 			name = SwipeNews;
+			packageProductDependencies = (
+				E3CD9B982BD3E804004C1D7A /* Realm */,
+				E3CD9B9A2BD3E804004C1D7A /* RealmSwift */,
+			);
 			productName = SwipeNews;
 			productReference = E3A609FD2BA9955600BAA90A /* SwipeNews.app */;
 			productType = "com.apple.product-type.application";
@@ -521,6 +534,9 @@
 				Base,
 			);
 			mainGroup = E3A609F42BA9955600BAA90A;
+			packageReferences = (
+				E3CD9B972BD3E804004C1D7A /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = E3A609FE2BA9955600BAA90A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -538,8 +554,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3CE74942BC1D2BD0054FF45 /* launchScreen.storyboard in Resources */,
-				E3D24EB42BB31FDB00758C81 /* AlbertSans-Regular.ttf in Resources */,
-				E3D24EB32BB31FDB00758C81 /* AlbertSans-SemiBold.ttf in Resources */,
 				E3A60A082BA9955900BAA90A /* Preview Assets.xcassets in Resources */,
 				E3A60A052BA9955900BAA90A /* Assets.xcassets in Resources */,
 			);
@@ -568,14 +582,16 @@
 			files = (
 				E3D24EBF2BB321F800758C81 /* TabBarAsset.swift in Sources */,
 				E3D24EB92BB320C100758C81 /* ShimmerEffectHelper.swift in Sources */,
-				E3D24EB22BB31FDB00758C81 /* Fonts.swift in Sources */,
 				E380B0182BC58FBF00BC4C8D /* Image+extensions.swift in Sources */,
 				E37298C62BC6925500807AFA /* BookmarkedArticlesView.swift in Sources */,
+				E3CD9BA22BD3EDCA004C1D7A /* ArticleResultsDB.swift in Sources */,
 				E380B0162BC2D5FE00BC4C8D /* ProfileAsset.swift in Sources */,
 				E3A60A332BA9CDF700BAA90A /* DataFetcher.swift in Sources */,
+				E3AAF9602BD3E4B800AFC924 /* DefaultStorage.swift in Sources */,
 				E3AAF9552BC7F48A00AFC924 /* AboutUsView.swift in Sources */,
 				E380B0112BC2D57B00BC4C8D /* ProfileMainView.swift in Sources */,
 				E3A60A532BAB60DA00BAA90A /* Service.swift in Sources */,
+				E3CD9BA02BD3EBE3004C1D7A /* Model.swift in Sources */,
 				E3D24EC42BB4785700758C81 /* NewsFakeData.swift in Sources */,
 				E3E0E3E32BC072A000104D44 /* DateFormatter+extension.swift in Sources */,
 				E3D24EAC2BB31F8C00758C81 /* Spacing.swift in Sources */,
@@ -594,8 +610,10 @@
 				E3D24EB72BB3206F00758C81 /* ShimmerView.swift in Sources */,
 				E3D24EC12BB3225B00758C81 /* MainView.swift in Sources */,
 				E314320D2BB4DE5100BA7282 /* CardView.swift in Sources */,
+				E3AAF9622BD3E4C300AFC924 /* Storage.swift in Sources */,
 				E3A60A012BA9955600BAA90A /* SwipeNewsApp.swift in Sources */,
 				E3A60A2C2BA9CAF200BAA90A /* Article.swift in Sources */,
+				E3CD9B9E2BD3EAC8004C1D7A /* ArticleDB.swift in Sources */,
 				E3D24EBC2BB3215B00758C81 /* LoadingIndicator.swift in Sources */,
 				E380B0142BC2D5BE00BC4C8D /* ProfileItem.swift in Sources */,
 				E3A60A372BA9D3AD00BAA90A /* Constants.swift in Sources */,
@@ -935,6 +953,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E3CD9B972BD3E804004C1D7A /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.49.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E3CD9B982BD3E804004C1D7A /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3CD9B972BD3E804004C1D7A /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		E3CD9B9A2BD3E804004C1D7A /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3CD9B972BD3E804004C1D7A /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E3A609F52BA9955600BAA90A /* Project object */;
 }

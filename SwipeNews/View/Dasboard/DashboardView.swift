@@ -83,7 +83,7 @@ class ContentViewModel<Service>: ObservableObject where Service: NewsAPI {
     @Published var isLoading = false
     private var cancellables = Set<AnyCancellable>()
     
-    init(service: Service = NewsAPIService(network: MockDataFetcher())) {
+    init(service: Service = NewsAPIService(network: NetworkDataFetcher())) {
         self.service = service
         //TODO: remove timer after removing the mock
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
