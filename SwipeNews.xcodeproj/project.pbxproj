@@ -47,9 +47,6 @@
 		E3CE74942BC1D2BD0054FF45 /* launchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CE74932BC1D2BD0054FF45 /* launchScreen.storyboard */; };
 		E3D24EAA2BB319D500758C81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EA92BB319D500758C81 /* Colors.swift */; };
 		E3D24EAC2BB31F8C00758C81 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EAB2BB31F8C00758C81 /* Spacing.swift */; };
-		E3D24EB22BB31FDB00758C81 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EAE2BB31FDB00758C81 /* Fonts.swift */; };
-		E3D24EB32BB31FDB00758C81 /* AlbertSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D24EB02BB31FDB00758C81 /* AlbertSans-SemiBold.ttf */; };
-		E3D24EB42BB31FDB00758C81 /* AlbertSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D24EB12BB31FDB00758C81 /* AlbertSans-Regular.ttf */; };
 		E3D24EB72BB3206F00758C81 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EB62BB3206F00758C81 /* ShimmerView.swift */; };
 		E3D24EB92BB320C100758C81 /* ShimmerEffectHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EB82BB320C100758C81 /* ShimmerEffectHelper.swift */; };
 		E3D24EBC2BB3215B00758C81 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D24EBB2BB3215B00758C81 /* LoadingIndicator.swift */; };
@@ -120,9 +117,6 @@
 		E3CE74932BC1D2BD0054FF45 /* launchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = launchScreen.storyboard; sourceTree = "<group>"; };
 		E3D24EA92BB319D500758C81 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E3D24EAB2BB31F8C00758C81 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
-		E3D24EAE2BB31FDB00758C81 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fonts.swift; path = "../../../../ekonoo-ios-app-v2/EkoUI/EkoUI/Fonts/Fonts.swift"; sourceTree = "<group>"; };
-		E3D24EB02BB31FDB00758C81 /* AlbertSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlbertSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		E3D24EB12BB31FDB00758C81 /* AlbertSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlbertSans-Regular.ttf"; sourceTree = "<group>"; };
 		E3D24EB62BB3206F00758C81 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		E3D24EB82BB320C100758C81 /* ShimmerEffectHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerEffectHelper.swift; sourceTree = "<group>"; };
 		E3D24EBB2BB3215B00758C81 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
@@ -351,7 +345,6 @@
 				E314320B2BB4DE3800BA7282 /* Card */,
 				E3D24EBA2BB3214C00758C81 /* Loader */,
 				E3D24EB52BB3206200758C81 /* Shimmer */,
-				E3D24EAD2BB31FD000758C81 /* Fonts */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -380,25 +373,6 @@
 				E3CD9BA12BD3EDCA004C1D7A /* ArticleResultsDB.swift */,
 			);
 			path = DBModel;
-			sourceTree = "<group>";
-		};
-		E3D24EAD2BB31FD000758C81 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				E3D24EAF2BB31FDB00758C81 /* AlbertSans */,
-				E3D24EAE2BB31FDB00758C81 /* Fonts.swift */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
-		E3D24EAF2BB31FDB00758C81 /* AlbertSans */ = {
-			isa = PBXGroup;
-			children = (
-				E3D24EB02BB31FDB00758C81 /* AlbertSans-SemiBold.ttf */,
-				E3D24EB12BB31FDB00758C81 /* AlbertSans-Regular.ttf */,
-			);
-			name = AlbertSans;
-			path = "../../../../ekonoo-ios-app-v2/EkoUI/EkoUI/Fonts/AlbertSans";
 			sourceTree = "<group>";
 		};
 		E3D24EB52BB3206200758C81 /* Shimmer */ = {
@@ -580,8 +554,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3CE74942BC1D2BD0054FF45 /* launchScreen.storyboard in Resources */,
-				E3D24EB42BB31FDB00758C81 /* AlbertSans-Regular.ttf in Resources */,
-				E3D24EB32BB31FDB00758C81 /* AlbertSans-SemiBold.ttf in Resources */,
 				E3A60A082BA9955900BAA90A /* Preview Assets.xcassets in Resources */,
 				E3A60A052BA9955900BAA90A /* Assets.xcassets in Resources */,
 			);
@@ -610,7 +582,6 @@
 			files = (
 				E3D24EBF2BB321F800758C81 /* TabBarAsset.swift in Sources */,
 				E3D24EB92BB320C100758C81 /* ShimmerEffectHelper.swift in Sources */,
-				E3D24EB22BB31FDB00758C81 /* Fonts.swift in Sources */,
 				E380B0182BC58FBF00BC4C8D /* Image+extensions.swift in Sources */,
 				E37298C62BC6925500807AFA /* BookmarkedArticlesView.swift in Sources */,
 				E3CD9BA22BD3EDCA004C1D7A /* ArticleResultsDB.swift in Sources */,

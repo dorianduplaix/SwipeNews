@@ -13,7 +13,7 @@ protocol NewsAPI: ObservableObject {
 }
 
 class NewsAPIService: Service, NewsAPI {
-    typealias Fetcher = MockDataFetcher<ArticleResults>
+    typealias Fetcher = NetworkDataFetcher<ArticleResults>
     @Published private (set) var articlesResults: Loadable<ArticleResults> = .notRequested
     private let network: Fetcher
     private let lastNetworkCallKey = "lastNetworkCallTimestamp"
@@ -48,7 +48,6 @@ class NewsAPIService: Service, NewsAPI {
                             purgedValue.articles = self.purgeBadNews(articles: value.articles)
                             //self.dataSource.appendItem(articleResults: purgedValue)
                             self.articlesResults.setValue(purgedValue)
-                            print(purgedValue)
                             continuation.resume()
                         }
                     }))
@@ -57,8 +56,7 @@ class NewsAPIService: Service, NewsAPI {
         }
     }
     
-    
-    func purgeBadNews(articles: [Article]) -> [Article] {
+    private func purgeBadNews(articles: [Article]) -> [Article] {
         return articles.filter { $0.title != "[Removed]" && $0.urlToImage != nil}
     }
     
