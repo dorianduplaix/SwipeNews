@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import RealmSwift
 
 struct DashboardView: View {
     @Environment(\.colorScheme) private var colorScheme
@@ -67,6 +68,7 @@ struct DashboardView: View {
         if let index = storeData.bookmarkedArticles.firstIndex(where: { $0.id == article.id }) {
             storeData.bookmarkedArticles.remove(at: index)
         } else {
+            viewModel.
             storeData.bookmarkedArticles.append(article)
         }
     }
@@ -77,14 +79,16 @@ struct DashboardView: View {
 }
 
 class ContentViewModel<Service>: ObservableObject where Service: NewsAPI {
-    @ObservedObject var service: Service
+    @ObservedObject private var service: Service
     @Published var articleResults: ArticleResults?
     @Published var error: Error?
     @Published var isLoading = false
     private var cancellables = Set<AnyCancellable>()
+    private var storage: Storage
     
-    init(service: Service = NewsAPIService(network: NetworkDataFetcher())) {
+    init(service: Service = NewsAPIService(network: NetworkDataFetcher(), storage: DefaultStorage.shared), storage: Storage) {
         self.service = service
+        self.storage = storage
         //TODO: remove timer after removing the mock
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.loadAllData()
@@ -100,6 +104,20 @@ class ContentViewModel<Service>: ObservableObject where Service: NewsAPI {
     
     func openArticleDetails() {
         
+    }
+    
+    func onBookmarkArticleTap(article: Article) {
+        guard let articleDB: ArticleDB = storage.load() else {
+            storage.save(value: article)
+            return
+        }
+        
+        
+        if let index = storeData.bookmarkedArticles.firstIndex(where: { $0.id == article.id }) {
+            storeData.bookmarkedArticles.remove(at: index)
+        } else {
+            storeData.bookmarkedArticles.append(article)
+        }
     }
     
     private func handleState() {

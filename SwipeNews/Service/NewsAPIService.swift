@@ -16,15 +16,21 @@ class NewsAPIService: Service, NewsAPI {
     typealias Fetcher = NetworkDataFetcher<ArticleResults>
     @Published private (set) var articlesResults: Loadable<ArticleResults> = .notRequested
     private let network: Fetcher
+    private let storage: Storage
     private let lastNetworkCallKey = "lastNetworkCallTimestamp"
     
-    required init(network: Fetcher) {
+    required init(network: Fetcher, storage: Storage) {
         self.network = network
+        self.storage = storage
     }
     
     func loadAllData() async {
         guard shouldFetchFromNetwork() else {
             print("db")
+            guard let initalValues: ArticleResultsDB = storage.load() else {
+                return
+            }
+            await self.articlesResults.setValue(ArticleResults(initalValues))
             return
         }
         print("call")
@@ -46,18 +52,18 @@ class NewsAPIService: Service, NewsAPI {
                         DispatchQueue.main.async {
                             var purgedValue = value
                             purgedValue.articles = self.purgeBadNews(articles: value.articles)
-                            //self.dataSource.appendItem(articleResults: purgedValue)
+                            self.storage.save(value: purgedValue.toDataBaseObject())
+//                            self.dataSource.appendItem(articleResults: purgedValue)
                             self.articlesResults.setValue(purgedValue)
                             continuation.resume()
                         }
                     }))
-                
             }
         }
     }
     
     private func purgeBadNews(articles: [Article]) -> [Article] {
-        return articles.filter { $0.title != "[Removed]" && $0.urlToImage != nil}
+        return articles.filter { $0.title != "[Removed]" && $0.urlToImage != nil }
     }
     
     private func shouldFetchFromNetwork() -> Bool {

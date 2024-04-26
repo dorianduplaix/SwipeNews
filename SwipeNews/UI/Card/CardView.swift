@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct CardView: View {
     @Environment(\.colorScheme) private var colorScheme
-    @EnvironmentObject private var storeData: StoreData
     
     @State var bookmarked: Bool
     @State private var isBlured = false
@@ -17,6 +17,7 @@ struct CardView: View {
     var article: Article
     var onBookmarkTap: () -> ()
     
+    //MARK: Body
     var body: some View {
         ZStack(alignment: .topLeading) {
             RoundedRectangle(cornerRadius: 10, style: .continuous)
@@ -61,6 +62,7 @@ struct CardView: View {
         .padding(.horizontal, .space4)
     }
     
+    //MARK: Background image
     @ViewBuilder
     private var image: some View {
         AsyncImage(
@@ -76,6 +78,7 @@ struct CardView: View {
         )
     }
     
+    //MARK: Information at the bottom
     @ViewBuilder
     private var informationContent: some View {
         VStack {
@@ -91,6 +94,7 @@ struct CardView: View {
         }
     }
     
+    //MARK: Description
     @ViewBuilder
     private var descriptionContent: some View {
         VStack(alignment: .leading) {
@@ -134,6 +138,7 @@ struct CardView: View {
         }
     }
     
+    //MARK: Footer
     @ViewBuilder
     private var footerContent: some View {
         VStack(spacing: .space2) {
@@ -155,6 +160,7 @@ struct CardView: View {
         }
     }
     
+    //MARK: Action buttons
     @ViewBuilder
     private var actionButtons: some View {
         HStack(spacing: .space6) {
@@ -170,6 +176,7 @@ struct CardView: View {
         .padding(.trailing, .space3)
     }
     
+    //MARK: Author information content
     @ViewBuilder
     private var authorInformationContent: some View {
         HStack {

@@ -9,5 +9,5 @@ import Foundation
 
 protocol Service {
     associatedtype Fetcher: DataFetcher
-    init(network: Fetcher)
+    init(network: Fetcher, storage: Storage)
 }

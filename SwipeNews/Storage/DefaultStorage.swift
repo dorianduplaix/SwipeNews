@@ -11,6 +11,9 @@ import RealmSwift
 fileprivate let realm = try! Realm()
 
 struct DefaultStorage: Storage {
+    
+    static var shared = DefaultStorage()
+    
     func save<Value: Object>(value: Value)  {
         realm.writeAsync {
             realm.add(value)
